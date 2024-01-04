@@ -15,8 +15,8 @@ that spin off to substories.
 
 ##### Users can
 - Create a story tree.
-- Add a sentence to their friends' story tree
-- Invite their friends to collaborate on a story.
+- Invite their friends to collaborate on a story tree.
+- Continue any story from where their friends left off.
 
 ##### System
 - A story tree is a tree where the beginning is the root node,
