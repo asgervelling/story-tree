@@ -1,19 +1,19 @@
-type StoryTree = {
+export type StoryTree = {
   root: StoryNode;
 };
 
-type StoryNode = {
-  parent: StoryNode | null;
+export type StoryNode = {
+  text: string;
   children: StoryNode[];
 };
 
-type Game = {
+export type Game = {
   players: User[];
   storyTree: StoryTree | null;
   public: boolean;
 }
 
-type User = {
+export type User = {
   username: string;
   email: string;
   pwHash: string;
