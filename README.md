@@ -3,13 +3,13 @@ A written game of [exquisite corpse](https://en.wikipedia.org/wiki/Exquisite_cor
 
 ![storytree](.github/storytree.png "d")
 
-This collaborative storytelling game starts
-with the user creating a story tree.
+This collaborative storytelling game starts 
+with the user creating a story tree. \
 At its root, it has the beginning of a story, ie.
 
 > Once upon a time
 
-Other users can add a sentence to it.
+Other users can add a sentence to it. \
 A story tree can branch out into many different stories
 that spin off to substories.
 
@@ -21,6 +21,6 @@ that spin off to substories.
 ##### System
 - A story tree is a tree where the beginning is the root node,
   and every subtree is a story.
-- Users can add a new node, a sentence in the story.
+- Users can add a new node, a sentence in the story. \
   They can add it to any node that is not their own.
 - Users cannot delete or edit nodes.
