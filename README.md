@@ -11,7 +11,7 @@ At its root, it has the beginning of a story, such as
 
 Other users can add a sentence to it. \
 A story tree can branch out into many different stories
-that spin off to substories.
+that spin off into substories.
 
 ##### Users can
 - Create a story tree.
