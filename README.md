@@ -5,7 +5,7 @@ A written game of [exquisite corpse](https://en.wikipedia.org/wiki/Exquisite_cor
 
 This collaborative storytelling game starts 
 with the user creating a story tree. \
-At its root, it has the beginning of a story, ie.
+At its root, it has the beginning of a story, such as
 
 > Once upon a time
 
