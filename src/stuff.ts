@@ -1,32 +1,32 @@
-import { StoryTree, StoryNode, Game, User } from "./types";
+import { Tree, TreeNode } from "./types";
 
-function dfs(n: StoryNode, mapFn: (n: StoryNode) => void): void {
+function dfs<T>(n: TreeNode<T>, mapFn: (n: TreeNode<T>) => void): void {
   mapFn(n);
   n.children.forEach((child) => dfs(child, mapFn));
 }
 
-const tree: StoryTree = {
+const tree: Tree<string> = {
   root: {
-    text: "Root n",
+    data: "Root n",
     children: [
       {
-        text: "A",
+        data: "A",
         children: [
           {
-            text: "A1",
+            data: "A1",
             children: [],
           },
         ],
       },
       {
-        text: "B",
+        data: "B",
         children: [
           {
-            text: "B1",
+            data: "B1",
             children: [],
           },
           {
-            text: "B2",
+            data: "B2",
             children: [],
           },
         ],
@@ -35,4 +35,4 @@ const tree: StoryTree = {
   },
 };
 
-dfs(tree.root, (n) => console.log(n.text));
+dfs(tree.root, (n) => console.log(n.data));

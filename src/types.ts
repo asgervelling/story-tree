@@ -1,16 +1,30 @@
-export type StoryTree = {
-  root: StoryNode;
-};
+export type Tree<T> = {
+  root: TreeNode<T>;
+}
 
-export type StoryNode = {
+export type TreeNode<T> = {
+  data: T;
+  children: TreeNode<T>[];
+}
+
+export type StoryTree = Tree<StoryEntry>;
+
+export type StoryNode = TreeNode<StoryEntry>;
+
+export type StoryEntry = {
   text: string;
-  children: StoryNode[];
-};
+  writtenBy: string;
+  writtenAt: Date;
+}
 
-export type Game = {
+export type PublicGame = {
+  players: string[];
+  storyTree: StoryTree;
+}
+
+export type PrivateGame = {
   players: User[];
-  storyTree: StoryTree | null;
-  public: boolean;
+  storyTree: StoryTree;
 }
 
 export type User = {
