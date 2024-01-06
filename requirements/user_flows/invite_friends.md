@@ -7,3 +7,4 @@
     - User goes through an authentication flow
     - User is presented with an input field, where
     they can write the email addresses of their friends
+

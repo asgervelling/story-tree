@@ -18,12 +18,12 @@ export type StoryEntry = {
 }
 
 export type PublicGame = {
-  players: string[];
+  players: User[];
   storyTree: StoryTree;
 }
 
 export type PrivateGame = {
-  players: User[];
+  playerAliases: string[];
   storyTree: StoryTree;
 }
 
