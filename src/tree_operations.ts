@@ -1,4 +1,4 @@
-import { StoryTree, Tree, TreeNode } from "./types";
+import { StoryEntry, StoryNode, StoryTree, Tree, TreeNode } from "./types";
 
 /**
  * Returns node new tree with the same structure as the input tree,
@@ -58,7 +58,7 @@ export function reduceTree<T, U>(
   return node.children.reduce((acc, n) => reduceTree(n, reduceFn, acc), acc);
 }
 
-export function findPathToRoot<T>(
+export function findPathFromRoot<T>(
   root: TreeNode<T>,
   targetNode: TreeNode<T>
 ): TreeNode<T>[] | null {
@@ -66,30 +66,34 @@ export function findPathToRoot<T>(
 }
 
 /**
- * Find the unique path from node to target,
- * if it exists.
+ * Find the unique path from a node to
+ * the node containing the target data.
+ * If no path is found, an empty array is returned.
  */
-function findPath<T>(node: TreeNode<T>, target: TreeNode<T>): TreeNode<T>[] {
-  function dfs(
-    node: TreeNode<T>,
-    target: TreeNode<T>,
-    currentPath: TreeNode<T>[]
-  ): TreeNode<T>[] {
-    const path = [...currentPath, node];
-
-    if (node === target) {
-      return path;
-    }
-
-    for (const child of node.children) {
-      const result = dfs(child, target, path);
-      if (result) {
-        return result;
-      }
-    }
-
-    return path;
+export function findPath<T>(
+  node: TreeNode<T>,
+  target: T,
+  equalityFn: (a: T, b: T) => boolean
+): TreeNode<T>[] {
+  if (equalityFn(node.data, target)) {
+    return [node];
   }
 
-  return dfs(node, target, []);
+  for (const child of node.children) {
+    const path = findPath(child, target, equalityFn);
+    if (path.length > 0) {
+      return [node, ...path];
+    }
+  }
+
+  return [];
+}
+
+export function concatStory(start: StoryNode, end: StoryEntry): string {
+  const path = findPath(start, end, (a, b) => a === b);
+  const sentences: string[] = path.reduce(
+    (acc: string[], n) => acc.concat(n.data.text),
+    []
+  )
+  return sentences.map((s) => s.trim()).join(" ");
 }
